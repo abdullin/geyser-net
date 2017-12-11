@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1DBF53F1-CB4C-4D26-8EB6-EB83130B0AD4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>eda</RootNamespace>
+    <AssemblyName>eda.core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\build\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\build\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FoundationDB.Client, Version=0.9.9.0, Culture=neutral, PublicKeyToken=0996d7acfe9079d4, processorArchitecture=AMD64">
+      <HintPath>..\packages\FoundationDB.Client.1.0.1\lib\net45\FoundationDB.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LZ4, Version=1.0.10.93, Culture=neutral, PublicKeyToken=62e1b5ec1eec9bdd, processorArchitecture=MSIL">
+      <HintPath>..\packages\lz4net.1.0.10.93\lib\net4-client\LZ4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="protobuf-net, Version=2.1.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <HintPath>..\packages\protobuf-net.2.1.0\lib\net451\protobuf-net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Barrel\Cellar.cs" />
+    <Compile Include="Barrel\CellarWriter.cs" />
+    <Compile Include="Barrel\Buffer.cs" />
+    <Compile Include="Barrel\CellarReader.cs" />
+    <Compile Include="Barrel\CellarTests.cs" />
+    <Compile Include="Barrel\Lmdb.cs" />
+    <Compile Include="Barrel\ReadPos.cs" />
+    <Compile Include="Barrel\Tables.cs" />
+    <Compile Include="Terminal\ConsoleSyntax.cs" />
+    <Compile Include="LmdbEnv.cs" />
+    <Compile Include="Terminal\Print.cs" />
+    <Compile Include="Util\BoundedReadStreamTests.cs" />
+    <Compile Include="Util\BoundedStream.cs" />
+    <Compile Include="Lightning\CursorDeleteOption.cs" />
+    <Compile Include="Lightning\CursorOperation.cs" />
+    <Compile Include="Lightning\CursorPutOptions.cs" />
+    <Compile Include="Lightning\DatabaseConfiguration.cs" />
+    <Compile Include="Lightning\DatabaseOpenFlags.cs" />
+    <Compile Include="Lightning\EnvironmentConfiguration.cs" />
+    <Compile Include="Lightning\EnvironmentCopyFlags.cs" />
+    <Compile Include="Lightning\EnvironmentOpenFlags.cs" />
+    <Compile Include="Lightning\HelperExtensions.cs" />
+    <Compile Include="Lightning\LightningCursor.cs" />
+    <Compile Include="Lightning\LightningDatabase.cs" />
+    <Compile Include="Lightning\LightningEnvironment.cs" />
+    <Compile Include="Lightning\LightningException.cs" />
+    <Compile Include="Lightning\LightningTransaction.cs" />
+    <Compile Include="Lightning\LightningTransactionState.cs" />
+    <Compile Include="Lightning\LightningVersionInfo.cs" />
+    <Compile Include="Lightning\Native\CompareFunction.cs" />
+    <Compile Include="Lightning\Native\Lmdb.cs" />
+    <Compile Include="Lightning\Native\LmdbMethods.cs" />
+    <Compile Include="Lightning\Native\MarshalMultipleValueStructure.cs" />
+    <Compile Include="Lightning\Native\MarshalValueStructure.cs" />
+    <Compile Include="Lightning\Native\MDBEnvInfo.cs" />
+    <Compile Include="Lightning\Native\MDBStat.cs" />
+    <Compile Include="Lightning\Native\ValueStructure.cs" />
+    <Compile Include="Lightning\PutOptions.cs" />
+    <Compile Include="Lightning\TransactionBeginFlags.cs" />
+    <Compile Include="Lightning\UnixAccessMode.cs" />
+    <Compile Include="Util\Streams.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\lib\lmdb.dll">
+      <Link>lmdb.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\lib\lmdb.pdb">
+      <Link>lmdb.pdb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\lib\msvcr120.dll">
+      <Link>msvcr120.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Lightning\Readme.md" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
