@@ -17,3 +17,7 @@ data analysis tasks on 1.5B of events (400GB+ of data). You can read more about 
 
 This .NET project was eventually ported to golang for the reasons outlined in the previous article. 
 All further development happens there, this .NET version is currently unmaintained.
+
+# License
+
+3-clause BSD license.
