@@ -16,7 +16,7 @@ data analysis tasks on 1.5B of events (400GB+ of data). You can read more about 
 [Real-time Analytics with Go and LMDB](https://abdullin.com/bitgn/real-time-analytics/).
 
 This .NET project was eventually ported to golang for the reasons outlined in the previous article. 
-All further development happens there, this .NET version is currently unmaintained.
+All further development happens in [cellar](https://github.com/abdullin/cellar), this .NET version is currently unmaintained.
 
 # License
 
